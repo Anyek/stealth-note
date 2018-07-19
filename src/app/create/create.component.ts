@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { StealthMessage } from '../stealth-message';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-create',
@@ -7,7 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  //title: string;
+  //message: string;
+  message: StealthMessage = new StealthMessage();
+
+  onSubmit(): void {
+    //alert('I work');
+    this.messageService.addMessage(this.message)
+  }
+
+  constructor(private messageService: MessageService) {
+
+  }
+
 
   ngOnInit() {
   }
